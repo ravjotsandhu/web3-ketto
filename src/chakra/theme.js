@@ -55,8 +55,7 @@ const config = {
 const theme = extendTheme({
     config,
     styles,
-    fonts,
-    fontWeights
+    fonts
 })
 
 export default theme
