@@ -31,7 +31,7 @@ export default function Navbar() {
     const [defaultAccount, setDefaultAccount] = useState(null)
     const [userBalance, setUserBalance] = useState(null)
     const connectwalletHandler = () => {
-        if (window.Ethereum) {
+        if (window.ethereum) {
             provider.send('eth_requestAccounts', []).then(async () => {
                 await accountChangedHandler(provider.getSigner())
             })
