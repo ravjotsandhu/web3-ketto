@@ -5,57 +5,57 @@ import '@fontsource/poppins/500.css'
 import '@fontsource/poppins/600.css'
 import '@fontsource/poppins/700.css'
 const styles = {
-    global: () => ({
-        body: {
-            bg: 'transparent'
-        },
-        p: {
-            background: 'transparent',
-            color: 'white'
-        },
-        div: {
-            background: 'transparent'
-        },
-        img: {
-            background: 'transparent'
-        },
-        svg: {
-            background: 'transparent'
-        },
-        span: {
-            background: 'transparent'
-        },
-        ul: {
-            background: 'transparent'
-        },
-        li: {
-            background: 'transparent'
-        },
-        button: {
-            background: 'transparent'
-        },
-        label: {
-            background: 'transparent',
-            color: 'white'
-        }
-    })
+  global: () => ({
+    body: {
+      bg: 'transparent',
+    },
+    p: {
+      background: 'transparent',
+      color: 'white',
+    },
+    div: {
+      background: 'transparent',
+    },
+    img: {
+      background: 'transparent',
+    },
+    svg: {
+      background: 'transparent',
+    },
+    span: {
+      background: 'transparent',
+    },
+    ul: {
+      background: 'transparent',
+    },
+    li: {
+      background: 'transparent',
+    },
+    button: {
+      background: 'transparent',
+    },
+    label: {
+      background: 'transparent',
+      color: 'white',
+    },
+  }),
 }
 // "*::placeholder": {
 //       color: "white",
 //     },
 const fonts = {
-    body: 'Poppins, sans-serif' // default
+  body: 'Poppins, sans-serif', // default
 }
 
 const config = {
-    initialColorMode: 'dark',
-    useSystemColorMode: 'false'
+  initialColorMode: 'dark',
+  useSystemColorMode: 'false',
 }
 
 const theme = extendTheme({
-    config,
-    styles,
-    fonts
+  config,
+  styles,
+  fonts,
 })
 
 export default theme
