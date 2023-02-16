@@ -1,0 +1,20 @@
+.card {
+  --elevation: 30;
+  --epx: calc(var(--elevation) * 1px);
+
+  /* these 2 shadows serve as a border for  0-1 elevation    */
+  --shadow1: 5px 5px 100px rgba(195, 224, 52, 0.223);
+  --shadow2: -5px -5px 40px rgba(26, 107, 95, 0.485);
+
+  --offset-y: calc(var(--epx) + 2px);
+  --blur: calc(var(--epx) * 4);
+  --spread: calc(var(--epx) * 0.2);
+  --shadow3: 0 var(--offset-y) var(--blur) var(--spread) rgba(31, 16, 97, 0.529);
+
+  box-shadow: var(--shadow1), var(--shadow2), var(--shadow3);
+}
+.donateButton {
+  background-color: #6fad3d;
+  align-items: center;
+  margin-left: 50%;
+}

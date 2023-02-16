@@ -2214,7 +2214,7 @@
     "ajv" "^6.10.0"
     "debug" "^4.3.1"
 
-"@truffle/contract@^4.0.35", "@truffle/contract@4.5.23":
+"@truffle/contract@^4.0.0", "@truffle/contract@^4.0.35", "@truffle/contract@4.5.23":
   "integrity" "sha512-ni/RzBdDFo60jaCb8ETCPBfPHRr1WVH5Y27EKmfEyrNg8TC7WZ28SQylMBkwdrgLjqAyPw3Pq7Y5us1f9tcyMQ=="
   "resolved" "https://registry.npmjs.org/@truffle/contract/-/contract-4.5.23.tgz"
   "version" "4.5.23"
@@ -3718,6 +3718,11 @@
   "integrity" "sha512-Gar0ASD4BDyKC4hl4DwHqDrmvjoxWKZigVnAbn5H1owvm4CxCPdb0HQDehwNYMJpla5+M2tPmPARzhtYuwpHow=="
   "resolved" "https://registry.npmjs.org/commander/-/commander-3.0.2.tgz"
   "version" "3.0.2"
+
+"comment@^0.0.2":
+  "integrity" "sha512-SQ18ML95pw2FRSSK/Lei20tS+e6KzvZFaDuhgmI73JtVMxACgENiHQJTNEAyvRDJKpdEEIo9bjETC2h7648PvQ=="
+  "resolved" "https://registry.npmjs.org/comment/-/comment-0.0.2.tgz"
+  "version" "0.0.2"
 
 "compute-scroll-into-view@1.0.20":
   "integrity" "sha512-UCB0ioiyj8CRjtrvaceBLqqhZCVP+1B8+NWQhmdsm0VXOJtobBCf1dBQmebCCo34qZmUwZfIH2MZLqNHazrfjg=="
@@ -9259,7 +9264,7 @@
     "core-util-is" "1.0.2"
     "extsprintf" "^1.2.0"
 
-"vite@^4", "vite@^4.1.0":
+"vite@^4", "vite@^4.1.1":
   "integrity" "sha512-LM9WWea8vsxhr782r9ntg+bhSFS06FJgCvvB0+8hf8UWtvaiDagKYWXndjfX6kGl74keHJUcpzrQliDXZlF5yg=="
   "resolved" "https://registry.npmjs.org/vite/-/vite-4.1.1.tgz"
   "version" "4.1.1"

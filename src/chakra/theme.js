@@ -7,7 +7,7 @@ import '@fontsource/poppins/700.css'
 const styles = {
   global: () => ({
     body: {
-      bg: 'transparent',
+      bg: '#203234',
     },
     p: {
       background: 'transparent',

@@ -2,7 +2,6 @@
   "name": "vite-project",
   "private": true,
   "version": "0.0.0",
-
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -12,24 +11,21 @@
     "test:coverage": "hardhat coverage"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "@chakra-ui/icons": "^2.0.17",
     "@chakra-ui/react": "^2.4.9",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@fontsource/poppins": "^4.5.10",
     "@superfluid-finance/sdk-core": "^0.6.1",
+    "comment": "^0.0.2",
     "ethers": "5.7.2",
     "framer-motion": "^9.0.2",
     "prettier": "^2.8.4",
-     "react-bootstrap": "^2.7.2"
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.7.2",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/react": "^18.0.27",
-    "@types/react-dom": "^18.0.10",
-    "@vitejs/plugin-react-swc": "^3.0.0",
-    "vite": "^4.1.0",
     "@nomicfoundation/hardhat-chai-matchers": "1.0.0",
     "@nomicfoundation/hardhat-network-helpers": "1.0.0",
     "@nomicfoundation/hardhat-toolbox": "^2.0.1",
@@ -39,12 +35,16 @@
     "@typechain/hardhat": "6.1.2",
     "@types/chai": "4.2.0",
     "@types/mocha": "^10.0.1",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@vitejs/plugin-react-swc": "^3.0.0",
     "chai": "4.2.0",
     "hardhat": "^2.12.7",
     "hardhat-gas-reporter": "1.0.8",
     "solidity-coverage": "0.8.1",
     "ts-node": "^10.9.1",
     "typechain": "8.1.0",
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "vite": "^4.1.1"
   }
 }

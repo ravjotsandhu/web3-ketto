@@ -1,28 +1,39 @@
 .description {
-    margin-top: 3%;
+  margin-top: 10%;
+}
+
+.title {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 35px;
+  margin-left: 3%;
+  margin-top: 2%;
+  margin-right: 65%;
+  display: inline-block;
+}
+.wallet {
+  margin-bottom: 3%;
+  width: 20%;
+  display: inline-block;
 }
 
 .mb-3 {
-    margin-left: 3%;
-    margin-right: 3%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .calculation {
-    border: 2px solid green;
-    padding: 2.5%;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 2.5%;
-}
-
-.connectedWallet {
-    margin-left: 40%;
-    margin-right: 40%;
-    margin-bottom: 3%;
+  border: 2px solid green;
+  padding: 2.5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 2.5%;
 }
 
 #connectWallet {
-    margin-left: 40%;
-    margin-right: 40%;
-    margin-bottom: 3%;
+  background-color: #6fad3d;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 2%;
+  padding-top: 2%;
+  border-radius: 7px;
 }

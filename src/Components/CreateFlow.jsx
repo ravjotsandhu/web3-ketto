@@ -3,6 +3,7 @@ import { Framework } from '@superfluid-finance/sdk-core'
 import { Button, Form, FormGroup, FormControl, Spinner, Card } from 'react-bootstrap'
 import './createFlow.css'
 import { ethers } from 'ethers'
+import CreateCard from './Card'
 
 let account
 
@@ -150,16 +151,26 @@ const CreateFlow = () => {
 
   return (
     <div>
-      <h2>Create a Flow</h2>
-      {currentAccount === '' ? (
-        <button id="connectWallet" className="button" onClick={connectWallet}>
-          Connect Wallet
-        </button>
-      ) : (
-        <Card className="connectedWallet">
-          {`${currentAccount.substring(0, 4)}...${currentAccount.substring(38)}`}
-        </Card>
-      )}
+      <div className="header">
+        <div className="title">
+          <h2>
+            Giv
+            <b>eth</b>
+          </h2>
+        </div>
+        <div className="wallet">
+          {currentAccount === '' ? (
+            <button id="connectWallet" className="button" onClick={connectWallet}>
+              Connect Wallet
+            </button>
+          ) : (
+            <Card className="connectedWallet">
+              {`${currentAccount.substring(0, 4)}...${currentAccount.substring(38)}`}
+            </Card>
+          )}
+        </div>
+      </div>
+      <CreateCard />
       <Form>
         <FormGroup className="mb-3">
           <FormControl
@@ -191,10 +202,7 @@ const CreateFlow = () => {
       </Form>
 
       <div className="description">
-        <p>
-          Go to the CreateFlow.js component and look at the <b>createFlow() </b>
-          function to see under the hood
-        </p>
+        <p>text description</p>
         <div className="calculation">
           <p>Your flow will be equal to:</p>
           <p>
