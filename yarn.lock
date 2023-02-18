@@ -1375,7 +1375,7 @@
     "aes-js" "3.0.0"
     "scrypt-js" "3.0.1"
 
-"@ethersproject/keccak256@^5.7.0", "@ethersproject/keccak256@5.7.0":
+"@ethersproject/keccak256@^5.0.0-beta.130", "@ethersproject/keccak256@^5.7.0", "@ethersproject/keccak256@5.7.0":
   "integrity" "sha512-2UcPboeL/iW+pSg6vZ6ydF8tCnv3Iu/8tUmLLzWWGzxWKFFqOBQFLo6uLUv6BDrLgCDfN28RJ/wtByx+jZ4KBg=="
   "resolved" "https://registry.npmjs.org/@ethersproject/keccak256/-/keccak256-5.7.0.tgz"
   "version" "5.7.0"
@@ -1388,7 +1388,7 @@
   "resolved" "https://registry.npmjs.org/@ethersproject/logger/-/logger-5.7.0.tgz"
   "version" "5.7.0"
 
-"@ethersproject/networks@^5.7.0", "@ethersproject/networks@5.7.1":
+"@ethersproject/networks@^5.7.0", "@ethersproject/networks@^5.7.1", "@ethersproject/networks@5.7.1":
   "integrity" "sha512-n/MufjFYv3yFcUyfhnXotyDlNdFb7onmkSy8aQERi2PjNcnWQ66xXxa3XlS8nCcA8aJKJjIIMNJTC7tu80GwpQ=="
   "resolved" "https://registry.npmjs.org/@ethersproject/networks/-/networks-5.7.1.tgz"
   "version" "5.7.1"
@@ -1509,7 +1509,7 @@
     "@ethersproject/rlp" "^5.7.0"
     "@ethersproject/signing-key" "^5.7.0"
 
-"@ethersproject/units@5.7.0":
+"@ethersproject/units@^5.7.0", "@ethersproject/units@5.7.0":
   "integrity" "sha512-pD3xLMy3SJu9kG5xDGI7+xhTEmGXlEqXU4OfNapmfnxLVY4EMSSRp7j1k7eezutBPH7RBN/7QPnwR7hzNlEFeg=="
   "resolved" "https://registry.npmjs.org/@ethersproject/units/-/units-5.7.0.tgz"
   "version" "5.7.0"
@@ -2079,7 +2079,7 @@
   dependencies:
     "antlr4ts" "^0.5.0-alpha.4"
 
-"@superfluid-finance/ethereum-contracts@1.5.0":
+"@superfluid-finance/ethereum-contracts@^1.5.0", "@superfluid-finance/ethereum-contracts@1.5.0":
   "integrity" "sha512-NqnJ3fk8Pw+iExYYTj4IPHamc5xm/l5bxyvafLMQkZnBhHTixdsXb8teTZaumfMNDBnTgvTTxe0VrdWVtFpApg=="
   "resolved" "https://registry.npmjs.org/@superfluid-finance/ethereum-contracts/-/ethereum-contracts-1.5.0.tgz"
   "version" "1.5.0"
@@ -2214,7 +2214,7 @@
     "ajv" "^6.10.0"
     "debug" "^4.3.1"
 
-"@truffle/contract@^4.0.0", "@truffle/contract@^4.0.35", "@truffle/contract@4.5.23":
+"@truffle/contract@^4.0.35", "@truffle/contract@4.5.23":
   "integrity" "sha512-ni/RzBdDFo60jaCb8ETCPBfPHRr1WVH5Y27EKmfEyrNg8TC7WZ28SQylMBkwdrgLjqAyPw3Pq7Y5us1f9tcyMQ=="
   "resolved" "https://registry.npmjs.org/@truffle/contract/-/contract-4.5.23.tgz"
   "version" "4.5.23"
@@ -2522,6 +2522,29 @@
   "version" "3.1.0"
   dependencies:
     "@swc/core" "^1.3.30"
+
+"@web3-react/abstract-connector@^6.0.7":
+  "integrity" "sha512-RhQasA4Ox8CxUC0OENc1AJJm8UTybu/oOCM61Zjg6y0iF7Z0sqv1Ai1VdhC33hrQpA8qSBgoXN9PaP8jKmtdqg=="
+  "resolved" "https://registry.npmjs.org/@web3-react/abstract-connector/-/abstract-connector-6.0.7.tgz"
+  "version" "6.0.7"
+  dependencies:
+    "@web3-react/types" "^6.0.7"
+
+"@web3-react/core@^6.1.9":
+  "integrity" "sha512-P877DslsbAkWIlMANpWiK7pCvNwlz0kJC0EGckuVh0wlA23J4UnFxq6xyOaxkxaDCu14rA/tAO0NbwjcXTQgSA=="
+  "resolved" "https://registry.npmjs.org/@web3-react/core/-/core-6.1.9.tgz"
+  "version" "6.1.9"
+  dependencies:
+    "@ethersproject/keccak256" "^5.0.0-beta.130"
+    "@web3-react/abstract-connector" "^6.0.7"
+    "@web3-react/types" "^6.0.7"
+    "tiny-invariant" "^1.0.6"
+    "tiny-warning" "^1.0.3"
+
+"@web3-react/types@^6.0.7":
+  "integrity" "sha512-ofGmfDhxmNT1/P/MgVa8IKSkCStFiyvXe+U5tyZurKdrtTDFU+wJ/LxClPDtFerWpczNFPUSrKcuhfPX1sI6+A=="
+  "resolved" "https://registry.npmjs.org/@web3-react/types/-/types-6.0.7.tgz"
+  "version" "6.0.7"
 
 "@zag-js/element-size@0.3.1":
   "integrity" "sha512-jR5j4G//bRzcxwAACWi9EfITnwjNmn10LxF4NmALrdZU7/PNWP3uUCdhCxd/0SCyeiJXUl0yvD57rWAbKPs1nw=="
@@ -4246,6 +4269,11 @@
   "version" "2.1.1"
   dependencies:
     "no-case" "^2.2.0"
+
+"dotenv@^16.0.3":
+  "integrity" "sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ=="
+  "resolved" "https://registry.npmjs.org/dotenv/-/dotenv-16.0.3.tgz"
+  "version" "16.0.3"
 
 "duplexer2@^0.1.2", "duplexer2@~0.1.0", "duplexer2@~0.1.2":
   "integrity" "sha512-asLFVfWWtJ90ZyOUHMqk7/S2w2guQKxUI2itj3d92ADHhxUSbCMGi1f1cBcJ7xM1To+pE/Khbwo1yuNbMEPKeA=="
@@ -7705,7 +7733,7 @@
     "loose-envify" "^1.4.0"
     "prop-types" "^15.6.2"
 
-"react@^15.3.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0-rc.1 || ^18.0.0", "react@^16.9.0 || ^17.0.0 || ^18.0.0", "react@^18.0.0", "react@^18.2.0", "react@>=0.14.0", "react@>=15.0.0", "react@>=16.14.0", "react@>=16.6.0", "react@>=16.8.0", "react@>=18":
+"react@^15.3.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0-rc.1 || ^18.0.0", "react@^16.9.0 || ^17.0.0 || ^18.0.0", "react@^18.0.0", "react@^18.2.0", "react@>=0.14.0", "react@>=15.0.0", "react@>=16.14.0", "react@>=16.6.0", "react@>=16.8", "react@>=16.8.0", "react@>=18":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"
@@ -8775,6 +8803,11 @@
   "integrity" "sha512-AD5ih2NlSssTCwsMznbvwMZpJ1cbhkGd2uueNxzv2jDlEeZdU04JQfRnggJQ8DrcVBGjAsCKwFBbDlVNtEMlzw=="
   "resolved" "https://registry.npmjs.org/tiny-invariant/-/tiny-invariant-1.3.1.tgz"
   "version" "1.3.1"
+
+"tiny-warning@^1.0.3":
+  "integrity" "sha512-lBN9zLN/oAf68o3zNXYrdCt1kP8WsiGW8Oo2ka41b2IM5JL/S1CTyX1rW0mb/zSuJun0ZUrDxx4sqvYS2FWzPA=="
+  "resolved" "https://registry.npmjs.org/tiny-warning/-/tiny-warning-1.0.3.tgz"
+  "version" "1.0.3"
 
 "title-case@^2.1.0":
   "integrity" "sha512-EkJoZ2O3zdCz3zJsYCsxyq2OC5hrxR9mfdd5I+w8h/tmFfeOxJ+vvkxsKxdmN0WtS9zLdHEgfgVOiMVgv+Po4Q=="
