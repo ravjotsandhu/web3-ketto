@@ -3,10 +3,42 @@ import { Framework } from '@superfluid-finance/sdk-core'
 import { Button, Form, FormGroup, FormControl, Spinner, Card } from 'react-bootstrap'
 import './createFlow.css'
 import { ethers } from 'ethers'
-
+import * as PushAPI from '@pushprotocol/restapi'
 let account
 
-//where the Superfluid logic takes place
+//IMPORTANT:remeber our id and shares are predefined, shares=1 and id=index of subscriber/donor
+
+const sendCharityJoinedBucketNotification = async (titleProp, bodyProp, recipientProp) => {
+  const provider = new ethers.providers.Web3Provider(window.ethereum)
+  await provider.send('eth_requestAccounts', [])
+  const signer = provider.getSigner()
+  try {
+    const recipient = `eip155:5:${recipientProp}`
+    const apiResponse = await PushAPI.payloads.sendNotification({
+      signer,
+      type: 3, // target
+      identityType: 2, // direct payload
+      notification: {
+        title: titleProp,
+        body: bodyProp,
+      },
+      payload: {
+        title: titleProp,
+        body: bodyProp,
+        cta: '',
+        img: '',
+      },
+      recipients: recipientProp, // recipient address
+      channel: `eip155:5:${import.meta.env.VITE_channel_address}`, // your channel address
+      env: 'staging',
+    })
+    // apiResponse?.status === 204, if sent successfully!
+    console.log('API repsonse: ', apiResponse)
+  } catch (err) {
+    console.error('Error: ', err)
+  }
+}
+
 async function updateSubscription(id, address, shares) {
   const provider = new ethers.providers.Web3Provider(window.ethereum)
   // const provider = new ethers.providers.JsonRpcProvider(import.meta.env.VITE_QUICKNODE_API_KEY_URL)
@@ -19,7 +51,6 @@ async function updateSubscription(id, address, shares) {
     chainId: Number(chainId),
     provider: provider,
   })
-
   const superSigner = sf.createSigner({ signer: signer })
 
   console.log(signer)
@@ -35,7 +66,6 @@ async function updateSubscription(id, address, shares) {
       units: shares,
       // userData?: string
     })
-
     console.log('Updating your Index...')
 
     await updateSubscriptionOperation.exec(signer)
@@ -46,14 +76,17 @@ async function updateSubscription(id, address, shares) {
          Super Token: ethx
          Index ID: ${id}
          Subscriber: ${address}
-         Units: ${shares} units
-         
+         Units: ${shares} units    
       `
     )
-
     console.log(
       `Congrats - you've just updated your index!
     `
+    )
+    sendCharityJoinedBucketNotification(
+      `Registered as a donation recipient`,
+      `You have joined the xyz charity bucket`,
+      address
     )
   } catch (error) {
     console.log(

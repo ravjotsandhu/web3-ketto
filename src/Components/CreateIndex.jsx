@@ -3,8 +3,39 @@ import { Framework } from '@superfluid-finance/sdk-core'
 import { Button, Form, Spinner, Card } from 'react-bootstrap'
 import './createFlow.css'
 import { ethers } from 'ethers'
-
+import * as PushAPI from '@pushprotocol/restapi'
 let account
+
+const sendNotification = async (titleProp, bodyProp, recipientProp) => {
+  const provider = new ethers.providers.Web3Provider(window.ethereum)
+  await provider.send('eth_requestAccounts', [])
+  const signer = provider.getSigner()
+  try {
+    const recipient = `eip155:5:${recipientProp}`
+    const apiResponse = await PushAPI.payloads.sendNotification({
+      signer,
+      type: 3, // target
+      identityType: 2, // direct payload
+      notification: {
+        title: titleProp,
+        body: bodyProp,
+      },
+      payload: {
+        title: titleProp,
+        body: bodyProp,
+        cta: '',
+        img: '',
+      },
+      recipients: recipientProp, // recipient address
+      channel: `eip155:5:${import.meta.env.VITE_channel_address}`, // your channel address
+      env: 'staging',
+    })
+    // apiResponse?.status === 204, if sent successfully!
+    console.log('API repsonse: ', apiResponse)
+  } catch (err) {
+    console.error('Error: ', err)
+  }
+}
 
 //where the Superfluid logic takes place
 async function createIndex() {
@@ -12,7 +43,9 @@ async function createIndex() {
   const provider = new ethers.providers.Web3Provider(window.ethereum)
   //   const provider = new ethers.providers.JsonRpcProvider(import.meta.env.VITE_QUICKNODE_API_KEY_URL)
   //   await provider.send('eth_requestAccounts', [])
-
+  const accounts = await ethereum.request({
+    method: 'eth_requestAccounts',
+  })
   const signer = provider.getSigner()
   const chainId = await window.ethereum.request({ method: 'eth_chainId' })
   //   const chainId = await provider.send('eth_chainId')
@@ -22,11 +55,9 @@ async function createIndex() {
   })
 
   const superSigner = sf.createSigner({ signer: signer })
-
   console.log(signer)
   //   console.log(await superSigner.getAddress())
   const ethx = await sf.loadSuperToken('ETHx')
-
   console.log(ethx)
 
   try {
@@ -34,7 +65,6 @@ async function createIndex() {
       indexId: id,
       // userData?: string
     })
-
     console.log(createIndexOperation)
     console.log(
       `Congrats - you've just created a new Index!
@@ -43,14 +73,12 @@ async function createIndex() {
        Index ID: ${id}
     `
     )
-
     const result = await createIndexOperation.exec(superSigner)
     console.log(result)
 
-    console.log(
-      `Congrats - you've just created an index!
-    `
-    )
+    console.log(`Congrats - you've just created an index!`)
+
+    sendNotification('Superfluid Index created!', `Index id is ${id}`, accounts[0])
   } catch (error) {
     console.log(
       "Hmmm, your transaction threw an error. Make sure that this stream does not already exist, and that you've entered a valid Ethereum address!"
@@ -80,6 +108,7 @@ const CreateIndex = () => {
       // Setup listener! This is for the case where a user comes to our site
       // and connected their wallet for the first time.
       // setupEventListener()
+      createIndex()
     } catch (error) {
       console.log(error)
     }

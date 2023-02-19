@@ -10,7 +10,7 @@ import Distribute from './Components/Distribute.jsx'
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <CreateFlow />
+      {/* <CreateFlow /> */}
       <CreateIndex />
       <UpdateSubscription />
       <Distribute />

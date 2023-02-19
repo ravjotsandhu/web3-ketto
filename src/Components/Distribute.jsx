@@ -3,8 +3,45 @@ import { Framework } from '@superfluid-finance/sdk-core'
 import { Button, Form, FormGroup, FormControl, Spinner, Card } from 'react-bootstrap'
 import './createFlow.css'
 import { ethers } from 'ethers'
-
+import * as PushAPI from '@pushprotocol/restapi'
 let account
+
+const sendNotification = async (titleProp, bodyProp) => {
+  const provider = new ethers.providers.Web3Provider(window.ethereum)
+  await provider.send('eth_requestAccounts', [])
+  const signer = provider.getSigner()
+  try {
+    // const recipient = `eip155:5:${recipientProp}`
+    const subscribers = await PushAPI.user.getSubscribers({
+      channel: `eip155:5:${import.meta.env.VITE_channel_address}`, // channel address in CAIP
+      page: 1, // Optional, defaults to 1
+      limit: 10, // Optional, defaults to 10
+      env: 'staging', // Optional, defaults to 'prod'
+    })
+    const apiResponse = await PushAPI.payloads.sendNotification({
+      signer,
+      type: 3, // target
+      identityType: 2, // direct payload
+      notification: {
+        title: titleProp,
+        body: bodyProp,
+      },
+      payload: {
+        title: titleProp,
+        body: bodyProp,
+        cta: '',
+        img: '',
+      },
+      recipients: subscribers, // recipient address
+      channel: `eip155:5:${import.meta.env.VITE_channel_address}`, // your channel address
+      env: 'staging',
+    })
+    // apiResponse?.status === 204, if sent successfully!
+    console.log('API repsonse: ', apiResponse)
+  } catch (err) {
+    console.error('Error: ', err)
+  }
+}
 
 //where the Superfluid logic takes place
 async function distributeFunds(id, amount) {
@@ -19,26 +56,19 @@ async function distributeFunds(id, amount) {
     chainId: Number(chainId),
     provider: provider,
   })
-
   const superSigner = sf.createSigner({ signer: signer })
-
   console.log(signer)
   //   console.log(await superSigner.getAddress())
   const ethx = await sf.loadSuperToken('ETHx')
-
   console.log(ethx)
-
   try {
     const distributeOperation = ethx.distribute({
       indexId: id,
       amount: amount,
       // userData?: string
     })
-
     console.log('Distributing...')
-
     await distributeOperation.exec(signer)
-
     console.log(
       `Congrats - you've just distributed to an Index!
          Network: Goerli
@@ -47,11 +77,11 @@ async function distributeFunds(id, amount) {
          Amount: ${amount}         
       `
     )
-
     console.log(
       `Congrats - you've just distributed to your index!
     `
     )
+    sendNotification(`Donation Received`, `You have received a donation of ${amount} ETHx!`)
   } catch (error) {
     console.log(
       "Hmmm, your transaction threw an error. Make sure that this stream does not already exist, and that you've entered a valid Ethereum address!"
